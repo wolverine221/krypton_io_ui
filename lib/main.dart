@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled/application/bloc_blinding/bloc_blinding.dart';
 import 'package:untitled/application/theme/theme_bloc.dart';
@@ -54,32 +52,31 @@ void main() async {
 //   }
 // }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, __) {
-        return MultiBlocProvider(
-          providers: BlocBindings.initializer,
-          child: BlocSelector<ThemeBloc, ThemeState, ThemeState>(
-            selector: (state) => state,
-            builder: (context, state) {
-              return GetMaterialApp(
-                title: 'Akco',
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.themes[0],
-                darkTheme: AppTheme.themes[1],
-                themeMode: state.themeMode,
-                home: const HomePage(),
-              );
-            },
-          ),
-        );
-      },
+    return MultiBlocProvider(
+      providers: BlocBindings.initializer,
+      child: BlocSelector<ThemeBloc, ThemeState, ThemeState>(
+        selector: (state) => state,
+        builder: (context, state) {
+          return GetMaterialApp(
+            title: 'Akco',
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.themes[0],
+            darkTheme: AppTheme.themes[1],
+            themeMode: state.themeMode,
+            home: const HomePage(),
+          );
+        },
+      ),
     );
   }
 }

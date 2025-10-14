@@ -17,6 +17,8 @@ class AppTheme {
     textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
     extensions: <ThemeExtension<AppColors>>[
       AppColors(
+        lightPrimaryBase: LightColors.lightPrimaryBase,
+        textPrimary: LightColors.textPrimary,
         isDarkMode: LightColors.isDarkMode,
         textBlack: LightColors.textBlack,
         subTextBlack: LightColors.subTextBlack,
@@ -31,8 +33,6 @@ class AppTheme {
         backgroundColorBlack: LightColors.backgroundColorBlack,
         backgroundColor: LightColors.backgroundColor,
         gradientBg: LightColors.gradientBg,
-        textPrimary: LightColors.textPrimary,
-        lightPrimaryBase: LightColors.lightPrimaryBase,
         appPrimary: LightColors.appPrimary,
         appPrimaryLight: LightColors.appPrimaryLight,
         appPrimaryDark: LightColors.appPrimaryDark,

@@ -3,87 +3,112 @@ import 'package:flutter/material.dart';
 class LightColors {
   static const bool isDarkMode = false;
 
-  static const Color textBlack = Color(0xff323232);
-  static const Color subTextBlack = Color(0xff535353);
-  static const Color blackRed = Color(0xff676262);
-  static const Color dimBlack = Color(0xff7a7a7a);
-  static const Color labelGray = Color(0xff999999);
-  static const Color textGray = Color(0xffA4A4A4);
-  static const Color whiteBlue = Color(0xffd8effa);
-  static const Color lineGray = Color(0xffcbbfbf);
-  static const Color bgGray = Color(0xfff5f4f4);
-  static const Color cardBg = Color(0xffF5F5F5);
-  static const Color backgroundColor = Color(0xffffffff);
-  static const Color gradientBg = Color(0xffd4dbde);
-  static const Color textPrimary = Color(0xff211f1f);
-  static const Color lightPrimaryBase = Color(0xffd2bfc4);
+  // Text Colors
+  static const Color textBlack = Color(0xFF1F2937); // Slate
+  static const Color subTextBlack = Color(0xFF4B5563); // Cool gray
+  static const Color textGray = Color(0xFF6B7280); // Gray
+  static const Color textSecondary = textGray;
 
+  // Backgrounds
+  static const Color backgroundColor = Color(0xFFF9FAFB);
+  static const Color bgPrimary = Color(0xFFFFFFFF);
+  static const Color cardBg = Color(0xFFFFFFFF);
+  static const Color bgGray = Color(0xFFF3F4F6); // Soft gray
+  static const Color whiteBlue = Color(0xFFF0F9FF); // Light blue-white
+  static const Color sheetBgPrimary = Color(0xFFE5E7EB); // Lightest gray
+
+  // Lines and borders
+  static const Color lineGray = Color(0xFFD1D5DB);
+
+  // Primary & Secondary colors (teal/green)
+  static const Color appPrimary = Color(0xFF00BFA6); // Slightly softer teal
+  static const Color appPrimaryLight = Color(0xFF66FFCC);
+  static const Color appPrimaryDark = Color(0xFF009E88);
+  static const Color appPrimaryDarker = Color(0xFF00695C);
+  static const Color appPrimary20 = Color(0x3300BFA6);
+
+  static const Color appSecondary = Color(0xFF38BDF8); // Sky blue
+  static const Color appPrimarySecondary = Color(0xFF00D2B2);
+
+  // Accent colors
+  static const Color lightRed = Color(0xFFDC2626);
+  static const Color lightGreen = Color(0xFF16A34A);
+  static const Color yellow = Color(0xFFEAB308);
+  static const Color errorRed = Color(0xFFB91C1C);
+  static const Color lightBlue = Color(0xFF60A5FA);
+
+  // Others
+  static const Color blackRed = Color(0xFF6B7280);
+  static const Color dimBlack = Color(0xFF9CA3AF);
+  static const Color labelGray = Color(0xFF9CA3AF);
+  static const Color lightPink = Color(0xFFFDF2F8);
+  static const Color lightGrayPink = Color(0xFFF3F4F6);
+  static const Color darkerPrimary = Color(0xFF334155);
+  static const Color darkestPrimary = Color(0xFF1E293B);
+  static const Color lightPrimary = Color(0xFFE0F2F1);
+  static const Color gradientBg = Color(0xFFF1F5F9);
   static const Color backgroundColorBlack = Color(0xFF000000);
-  static const Color appPrimary = Color(0xFFF2B82A);
-  static const Color appPrimaryLight = Color(0xfff6dea2);
-  static const Color appPrimaryDark = Color(0xFFC9380C);
-  static const Color appPrimaryDarker = Color(0xFFD54114);
-  static const Color appSecondary = Color(0xffDB6118);
+  static const Color white = Color(0xFFFFFFFF);
 
-  static const Color lightRed = Color(0xffE33C40);
-  static const Color lightPink = Color(0xa1bce0f8);
-  static const Color yellow = Color(0xffffc504);
-  static const Color lightGrayPink = Color(0xc5a7c7d5);
-  static const Color lightGreen = Color(0xff10D60F);
-  static const Color darkerPrimary = Color(0xff650a00);
-  static const Color appPrimarySecondary = Color(0xFF9F378B);
-  static const Color darkestPrimary = Color(0xff330600);
-  static const Color lightBlue = Color(0xffaae5ff);
-  static const Color errorRed = Color(0xffE72C1D);
-  static const Color textSecondary = Color(0xff5A5A5A);
-  static const Color appPrimary20 = Color(0xff8aa5d1);
-  static const Color sheetBgPrimary = Color(0xfff5f4f4);
-  static const Color lightPrimary = Color(0xfff4f4f6);
-  static const Color bgPrimary = Color(0xffffffff);
-  static const Color white = Color(0xffffffff);
+  static const Color textPrimary = textBlack; // Or any other appropriate value
+  static const Color lightPrimaryBase = Color(0xFF1E1E1E); // Use same as in dark if needed
 }
 
 class DarkColors {
   static const bool isDarkMode = true;
 
-  static const Color textBlack = Color(0xFFE0E0E0);
+  // Text Colors
+  static const Color textBlack = Color(0xFFE0E0E0); // Almost white
   static const Color subTextBlack = Color(0xFFB0B0B0);
-  static const Color blackRed = Color(0xFFA59E9E);
-  static const Color dimBlack = Color(0xFF8D8D8D);
-  static const Color labelGray = Color(0xFF757575);
   static const Color textGray = Color(0xFF9E9E9E);
-  static const Color whiteBlue = Color(0xFF1A3A4A);
-  static const Color lineGray = Color(0xFF4A4444);
-  static const Color bgGray = Color(0xFF121212);
-  static const Color backgroundColorBlack = Color(0xFFFFFFFF);
-  static const Color cardBg = Color(0xFF1E1E1E);
-  static const Color backgroundColor = Color(0xFF121212);
-  static const Color gradientBg = Color(0xFF2D3A3F);
-  static const Color textPrimary = Color(0xFFE0E0E0);
-  static const Color lightPrimaryBase = Color(0xFF3A2D31);
+  static const Color textSecondary = Color(0xFF9CA3AF); // Cool gray
 
-  static const Color appPrimary = Color(0xFFFFD54F);
-  static const Color appPrimaryLight = Color(0xFFFFECB3);
-  static const Color appPrimaryDark = Color(0xFFE65100);
-  static const Color appPrimaryDarker = Color(0xFFBF360C);
-  static const Color appSecondary = Color(0xFFFF7043);
+  // Backgrounds
+  static const Color backgroundColor = Color(0xFF0D1117); // Main background
+  static const Color bgPrimary = Color(0xFF0D1117); // Same as background
+  static const Color cardBg = Color(0xFF161B22); // Slightly lighter for cards
+  static const Color bgGray = Color(0xFF1F2937); // Neutral gray
+  static const Color sheetBgPrimary = cardBg;
 
+  // Lines and borders
+  static const Color lineGray = Color(0xFF2A2E35);
+
+  // Primary & Secondary colors (neon green style)
+  static const Color appPrimary = Color(0xFF00FFB3); // Neon green
+  static const Color appPrimaryLight = Color(0xFF66FFD6);
+  static const Color appPrimaryDark = Color(0xFF00D49A);
+  static const Color appPrimaryDarker = Color(0xFF009F73);
+  static const Color appPrimary20 = Color(0x3300FFB3);
+
+  static const Color appSecondary = Color(0xFF38BDF8); // Soft cyan/blue
+  static const Color appPrimarySecondary = Color(0xFF00D2B2);
+
+  // Glow and highlight
+  static const Color whiteBlue = Color(0xFF1A2A3A);
+  static const Color gradientBg = Color(0xFF0E1E25); // Dark gradient background
+
+  // Other accent colors
   static const Color lightRed = Color(0xFFEF5350);
-  static const Color lightPink = Color(0x4D7C9EB8);
-  static const Color yellow = Color(0xFFFFD600);
-  static const Color lightGrayPink = Color(0x8A6D7F8F);
-  static const Color lightGreen = Color(0xFF69F0AE);
-  static const Color darkerPrimary = Color(0xFF4E342E);
-  static const Color appPrimarySecondary = Color(0xFFBA68C8);
-  static const Color darkestPrimary = Color(0xFF3E2723);
-  static const Color lightBlue = Color(0xFF4FC3F7);
+  static const Color lightGreen = Color(0xFF22C55E);
+  static const Color yellow = Color(0xFFEAB308);
   static const Color errorRed = Color(0xFFF44336);
-  static const Color textSecondary = Color(0xFF9E9E9E);
-  static const Color appPrimary20 = Color(0xFF5D7AA1);
-  static const Color sheetBgPrimary = Color(0xFF1E1E1E);
-  static const Color lightPrimary = Color(0xFF2D2D2D);
-  static const Color bgPrimary = Color(0xFF121212);
-  static const Color white = Color(0xFF121212);
+  static const Color lightBlue = Color(0xFF60A5FA);
+
+  // Not really needed in dark mode but kept for ThemeExtension
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color lightPrimary = Color(0xFF101010);
+
+  static const Color blackRed = Color(0xFF7C7C7C);
+  static const Color dimBlack = Color(0xFF444444);
+  static const Color labelGray = Color(0xFF666666);
+  static const Color lightPink = Color(0x4D332211);
+  static const Color lightGrayPink = Color(0x8A332211);
+  static const Color darkerPrimary = Color(0xFF4E342E);
+  static const Color darkestPrimary = Color(0xFF1C1C1C);
+  static const Color backgroundColorBlack = Color(0xFF000000);
+
+  static const Color textPrimary = textBlack;
+  static const Color lightPrimaryBase = Color(0xFF1E1E1E);
 }
 
 class AppColors extends ThemeExtension<AppColors> {
@@ -164,6 +189,90 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.bgPrimary,
     required this.white,
   });
+
+  factory AppColors.light() {
+    return AppColors(
+      isDarkMode: LightColors.isDarkMode,
+      textBlack: LightColors.textBlack,
+      subTextBlack: LightColors.subTextBlack,
+      blackRed: LightColors.blackRed,
+      dimBlack: LightColors.dimBlack,
+      labelGray: LightColors.labelGray,
+      textGray: LightColors.textGray,
+      whiteBlue: LightColors.whiteBlue,
+      lineGray: LightColors.lineGray,
+      bgGray: LightColors.bgGray,
+      backgroundColorBlack: LightColors.backgroundColorBlack,
+      cardBg: LightColors.cardBg,
+      backgroundColor: LightColors.backgroundColor,
+      gradientBg: LightColors.gradientBg,
+      textPrimary: LightColors.textPrimary,
+      lightPrimaryBase: LightColors.lightPrimaryBase,
+      appPrimary: LightColors.appPrimary,
+      appPrimaryLight: LightColors.appPrimaryLight,
+      appPrimaryDark: LightColors.appPrimaryDark,
+      appPrimaryDarker: LightColors.appPrimaryDarker,
+      appSecondary: LightColors.appSecondary,
+      lightRed: LightColors.lightRed,
+      lightPink: LightColors.lightPink,
+      yellow: LightColors.yellow,
+      lightGrayPink: LightColors.lightGrayPink,
+      lightGreen: LightColors.lightGreen,
+      darkerPrimary: LightColors.darkerPrimary,
+      appPrimarySecondary: LightColors.appPrimarySecondary,
+      darkestPrimary: LightColors.darkestPrimary,
+      lightBlue: LightColors.lightBlue,
+      errorRed: LightColors.errorRed,
+      textSecondary: LightColors.textSecondary,
+      appPrimary20: LightColors.appPrimary20,
+      sheetBgPrimary: LightColors.sheetBgPrimary,
+      lightPrimary: LightColors.lightPrimary,
+      bgPrimary: LightColors.bgPrimary,
+      white: LightColors.white,
+    );
+  }
+
+  factory AppColors.dark() {
+    return AppColors(
+      isDarkMode: DarkColors.isDarkMode,
+      textBlack: DarkColors.textBlack,
+      subTextBlack: DarkColors.subTextBlack,
+      blackRed: DarkColors.blackRed,
+      dimBlack: DarkColors.dimBlack,
+      labelGray: DarkColors.labelGray,
+      textGray: DarkColors.textGray,
+      whiteBlue: DarkColors.whiteBlue,
+      lineGray: DarkColors.lineGray,
+      bgGray: DarkColors.bgGray,
+      backgroundColorBlack: DarkColors.backgroundColorBlack,
+      cardBg: DarkColors.cardBg,
+      backgroundColor: DarkColors.backgroundColor,
+      gradientBg: DarkColors.gradientBg,
+      textPrimary: DarkColors.textPrimary,
+      lightPrimaryBase: DarkColors.lightPrimaryBase,
+      appPrimary: DarkColors.appPrimary,
+      appPrimaryLight: DarkColors.appPrimaryLight,
+      appPrimaryDark: DarkColors.appPrimaryDark,
+      appPrimaryDarker: DarkColors.appPrimaryDarker,
+      appSecondary: DarkColors.appSecondary,
+      lightRed: DarkColors.lightRed,
+      lightPink: DarkColors.lightPink,
+      yellow: DarkColors.yellow,
+      lightGrayPink: DarkColors.lightGrayPink,
+      lightGreen: DarkColors.lightGreen,
+      darkerPrimary: DarkColors.darkerPrimary,
+      appPrimarySecondary: DarkColors.appPrimarySecondary,
+      darkestPrimary: DarkColors.darkestPrimary,
+      lightBlue: DarkColors.lightBlue,
+      errorRed: DarkColors.errorRed,
+      textSecondary: DarkColors.textSecondary,
+      appPrimary20: DarkColors.appPrimary20,
+      sheetBgPrimary: DarkColors.sheetBgPrimary,
+      lightPrimary: DarkColors.lightPrimary,
+      bgPrimary: DarkColors.bgPrimary,
+      white: DarkColors.white,
+    );
+  }
 
   @override
   ThemeExtension<AppColors> copyWith({

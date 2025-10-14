@@ -10,7 +10,7 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(ThemeState(themeData: AppTheme.themes[0], themeMode: ThemeMode.system)) {
+  ThemeBloc() : super(ThemeState(themeData: AppTheme.themes[1], themeMode: ThemeMode.dark)) {
     // on<ChangeTheme>(_onChangeTheme);
     on<ToggleThemeMode>(_onToggleThemeMode);
     on<LoadTheme>(_onLoadTheme);
