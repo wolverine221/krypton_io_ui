@@ -6,6 +6,7 @@ import 'package:untitled/presentation/widgets/CustomGradient/CustomGradient.dart
 import 'package:untitled/presentation/widgets/TextWidget/Text_Widget.dart';
 
 import '../../widgets/CustomContainer/CustomContainer.dart';
+import '../../widgets/DivisionContainer/DivisionContainer.dart'; // Add this import
 
 class PageSeven extends StatelessWidget {
   const PageSeven({Key? key}) : super(key: key);
@@ -15,7 +16,6 @@ class PageSeven extends StatelessWidget {
     final appColors = Theme.of(context).extension<AppColors>()!;
 
     return CustomGradient(
-      colors: [appColors.gradientBg, appColors.backgroundColor],
       child: CustomContainer(
         child: Column(
           children: [
@@ -67,17 +67,14 @@ class PageSeven extends StatelessWidget {
 
             const SizedBox(height: 48),
 
-            // Button
-            CustomButton(
-              text: "Get in Touch",
-              onTap: () {},
-              backgroundColor: appColors.appPrimary,
-              textColor: appColors.backgroundColor,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              borderRadius: 8,
+            // Insert your DivisionContainer here:
+            DivisionContainer(
+              topText: "Welcome to your dashboard",
+              lightSectionText: "Light section content goes here with enough length to test overflow",
+              darkSectionText: "Dark section content goes here, also testing overflow",
+              onButtonPressed: () => print('Button clicked!'),
+              height: 160,
             ),
-
-            const Expanded(flex: 1, child: SizedBox()),
           ],
         ),
       ),

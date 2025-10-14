@@ -20,7 +20,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: alignment,
-      padding: padding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       width: width ?? double.infinity,
       height: height,
       child: child,

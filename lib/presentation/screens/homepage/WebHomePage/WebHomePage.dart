@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/core/app_constant/AppConstant.dart';
 import 'package:untitled/core/app_theme/app_colors/appcolors.dart';
 import 'package:untitled/presentation/screens/PageOne/PageOne.dart';
 import 'package:untitled/presentation/screens/PageTwo/PageTwo.dart';
@@ -37,10 +38,14 @@ class _WebHomePageState extends State<WebHomePage> {
     final appColors = Theme.of(context).extension<AppColors>()!;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
       body: CustomGradient(
         child: Column(
           children: [
-            CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
+            if (_currentPage == 0)
+              CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
+
             Expanded(
               child: PageView(
                 controller: _pageController,
@@ -60,6 +65,13 @@ class _WebHomePageState extends State<WebHomePage> {
           ],
         ),
       ),
+
+      // Show FloatingActionButton when NOT on first page
+      floatingActionButton: _currentPage != 0
+          ? AppConstant.glassMorphicFAB(context, () {
+              _jumpToPage(0);
+            })
+          : null,
     );
   }
 }

@@ -2,40 +2,30 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback onPressed;
   final Color backgroundColor;
   final Color textColor;
-  final double borderRadius;
-  final EdgeInsetsGeometry padding;
 
   const CustomButton({
     Key? key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     required this.backgroundColor,
-    required this.textColor,
-    this.borderRadius = 8,
-    this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+    this.textColor = Colors.white,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: backgroundColor,
-      borderRadius: BorderRadius.circular(borderRadius),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(borderRadius),
-        child: Container(
-          padding: padding,
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: Theme.of(
-              context,
-            ).textTheme.labelLarge?.copyWith(color: textColor, fontWeight: FontWeight.w600),
-          ),
-        ),
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
       ),
     );
   }
