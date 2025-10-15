@@ -39,11 +39,13 @@ class _WebHomePageState extends State<WebHomePage> {
     final appColors = Theme.of(context).extension<AppColors>()!;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Stack(
         children: [
-          GradientSweepBackground(controller: _pageController), // 🔥 This one now uses CustomPainter
+          GradientSweepBackground(controller: _pageController),
 
           Column(
             children: [
