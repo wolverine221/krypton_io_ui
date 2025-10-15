@@ -13,7 +13,7 @@ class PageThree extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            color: appColors.lightBlue,
+            color: Colors.transparent,
             child: Center(
               child: Text(
                 "Page 2 - Section 1",
@@ -25,7 +25,7 @@ class PageThree extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            color: appColors.sheetBgPrimary,
+            color: Colors.transparent,
             child: Center(
               child: Text(
                 "Page 2 - Section 2",
@@ -37,7 +37,7 @@ class PageThree extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            color: appColors.appPrimaryLight,
+            color: Colors.transparent,
             child: Center(
               child: Text(
                 "Page 2 - Section 3",

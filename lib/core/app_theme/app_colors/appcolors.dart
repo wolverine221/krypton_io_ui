@@ -20,15 +20,15 @@ class LightColors {
   // Lines and borders
   static const Color lineGray = Color(0xFFD1D5DB);
 
-  // Primary & Secondary colors (teal/green)
-  static const Color appPrimary = Color(0xFF00BFA6); // Slightly softer teal
-  static const Color appPrimaryLight = Color(0xFF66FFCC);
-  static const Color appPrimaryDark = Color(0xFF009E88);
-  static const Color appPrimaryDarker = Color(0xFF00695C);
-  static const Color appPrimary20 = Color(0x3300BFA6);
+  // Primary & Secondary colors (violet)
+  static const Color appPrimary = Color(0xFF7C3AED); // Indigo-Violet
+  static const Color appPrimaryLight = Color(0xFFC4B5FD); // Soft Lavender
+  static const Color appPrimaryDark = Color(0xFF5B21B6); // Deep Violet
+  static const Color appPrimaryDarker = Color(0xFF4C1D95); // Royal Purple
+  static const Color appPrimary20 = Color(0x337C3AED); // 20% opacity Indigo-Violet
 
-  static const Color appSecondary = Color(0xFF38BDF8); // Sky blue
-  static const Color appPrimarySecondary = Color(0xFF00D2B2);
+  static const Color appSecondary = Color(0xFF9333EA); // Bright Purple
+  static const Color appPrimarySecondary = Color(0xFF9333EA);
 
   // Accent colors
   static const Color lightRed = Color(0xFFDC2626);
@@ -73,15 +73,15 @@ class DarkColors {
   // Lines and borders
   static const Color lineGray = Color(0xFF2A2E35);
 
-  // Primary & Secondary colors (neon green style)
-  static const Color appPrimary = Color(0xFF00FFB3); // Neon green
-  static const Color appPrimaryLight = Color(0xFF66FFD6);
-  static const Color appPrimaryDark = Color(0xFF00D49A);
-  static const Color appPrimaryDarker = Color(0xFF009F73);
-  static const Color appPrimary20 = Color(0x3300FFB3);
+  // Primary & Secondary colors (violet)
+  static const Color appPrimary = Color(0xFFA78BFA); // Light Violet
+  static const Color appPrimaryLight = Color(0xFFC4B5FD); // Lavender
+  static const Color appPrimaryDark = Color(0xFF7C3AED); // Indigo Violet
+  static const Color appPrimaryDarker = Color(0xFF5B21B6); // Deep Violet
+  static const Color appPrimary20 = Color(0x33A78BFA); // 20% opacity
 
-  static const Color appSecondary = Color(0xFF38BDF8); // Soft cyan/blue
-  static const Color appPrimarySecondary = Color(0xFF00D2B2);
+  static const Color appSecondary = Color(0xFF8B5CF6); // Medium Purple
+  static const Color appPrimarySecondary = Color(0xFF8B5CF6);
 
   // Glow and highlight
   static const Color whiteBlue = Color(0xFF1A2A3A);
@@ -275,7 +275,8 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 
   @override
-  ThemeExtension<AppColors> copyWith({
+  AppColors copyWith({
+    Color? backgroundColorBlack,
     bool? isDarkMode,
     Color? textBlack,
     Color? subTextBlack,
@@ -287,7 +288,6 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? lineGray,
     Color? bgGray,
     Color? cardBg,
-    Color? backgroundColorBlack,
     Color? backgroundColor,
     Color? gradientBg,
     Color? textPrimary,
@@ -315,6 +315,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? white,
   }) {
     return AppColors(
+      backgroundColorBlack: backgroundColorBlack ?? this.backgroundColorBlack,
       isDarkMode: isDarkMode ?? this.isDarkMode,
       textBlack: textBlack ?? this.textBlack,
       subTextBlack: subTextBlack ?? this.subTextBlack,
@@ -324,7 +325,6 @@ class AppColors extends ThemeExtension<AppColors> {
       textGray: textGray ?? this.textGray,
       whiteBlue: whiteBlue ?? this.whiteBlue,
       lineGray: lineGray ?? this.lineGray,
-      backgroundColorBlack: backgroundColorBlack ?? this.backgroundColorBlack,
       bgGray: bgGray ?? this.bgGray,
       cardBg: cardBg ?? this.cardBg,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -356,12 +356,12 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 
   @override
-  ThemeExtension<AppColors> lerp(covariant ThemeExtension<AppColors>? other, double t) {
+  AppColors lerp(ThemeExtension<AppColors>? other, double t) {
     if (other is! AppColors) {
       return this;
     }
-
     return AppColors(
+      backgroundColorBlack: Color.lerp(backgroundColorBlack, other.backgroundColorBlack, t)!,
       isDarkMode: t < 0.5 ? isDarkMode : other.isDarkMode,
       textBlack: Color.lerp(textBlack, other.textBlack, t)!,
       subTextBlack: Color.lerp(subTextBlack, other.subTextBlack, t)!,
@@ -372,7 +372,6 @@ class AppColors extends ThemeExtension<AppColors> {
       whiteBlue: Color.lerp(whiteBlue, other.whiteBlue, t)!,
       lineGray: Color.lerp(lineGray, other.lineGray, t)!,
       bgGray: Color.lerp(bgGray, other.bgGray, t)!,
-      backgroundColorBlack: Color.lerp(backgroundColorBlack, other.backgroundColorBlack, t)!,
       cardBg: Color.lerp(cardBg, other.cardBg, t)!,
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!,
       gradientBg: Color.lerp(gradientBg, other.gradientBg, t)!,

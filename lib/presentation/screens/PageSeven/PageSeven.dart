@@ -15,69 +15,65 @@ class PageSeven extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).extension<AppColors>()!;
 
-    return CustomGradient(
-      child: CustomContainer(
-        child: Column(
+    return Column(
+      children: [
+        const Expanded(flex: 1, child: SizedBox()),
+
+        // Title
+        TextWidget(
+          text: "Contact Our Team",
+          textAlign: TextAlign.center,
+          style: AppTextStyle.headline1(context: context, color: appColors.textBlack),
+        ),
+        const SizedBox(height: 16),
+
+        // Subtitle
+        TextWidget(
+          text: "We're here to help you with global support, anytime you need.",
+          textAlign: TextAlign.center,
+          style: AppTextStyle.bodyText1(context: context, color: appColors.subTextBlack),
+        ),
+
+        const SizedBox(height: 40),
+
+        // Contact cards
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 24,
+          runSpacing: 24,
           children: [
-            const Expanded(flex: 1, child: SizedBox()),
-
-            // Title
-            TextWidget(
-              text: "Contact Our Team",
-              textAlign: TextAlign.center,
-              style: AppTextStyle.headline1(context: context, color: appColors.textBlack),
+            _buildContactCard(
+              context,
+              icon: Icons.email_outlined,
+              title: "Email",
+              value: "support@yourcompany.com",
             ),
-            const SizedBox(height: 16),
-
-            // Subtitle
-            TextWidget(
-              text: "We're here to help you with global support, anytime you need.",
-              textAlign: TextAlign.center,
-              style: AppTextStyle.bodyText1(context: context, color: appColors.subTextBlack),
+            _buildContactCard(
+              context,
+              icon: Icons.phone_outlined,
+              title: "Phone",
+              value: "+1 (800) 123-4567",
             ),
-
-            const SizedBox(height: 40),
-
-            // Contact cards
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 24,
-              runSpacing: 24,
-              children: [
-                _buildContactCard(
-                  context,
-                  icon: Icons.email_outlined,
-                  title: "Email",
-                  value: "support@yourcompany.com",
-                ),
-                _buildContactCard(
-                  context,
-                  icon: Icons.phone_outlined,
-                  title: "Phone",
-                  value: "+1 (800) 123-4567",
-                ),
-                _buildContactCard(
-                  context,
-                  icon: Icons.location_on_outlined,
-                  title: "Office",
-                  value: "San Francisco, USA",
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 48),
-
-            // Insert your DivisionContainer here:
-            DivisionContainer(
-              topText: "Welcome to your dashboard",
-              lightSectionText: "Light section content goes here with enough length to test overflow",
-              darkSectionText: "Dark section content goes here, also testing overflow",
-              onButtonPressed: () => print('Button clicked!'),
-              height: 160,
+            _buildContactCard(
+              context,
+              icon: Icons.location_on_outlined,
+              title: "Office",
+              value: "San Francisco, USA",
             ),
           ],
         ),
-      ),
+
+        const SizedBox(height: 48),
+
+        // Insert your DivisionContainer here:
+        DivisionContainer(
+          topText: "Welcome to your dashboard",
+          lightSectionText: "Light section content goes here with enough length to test overflow",
+          darkSectionText: "Dark section content goes here, also testing overflow",
+          onButtonPressed: () => print('Button clicked!'),
+          height: 160,
+        ),
+      ],
     );
   }
 

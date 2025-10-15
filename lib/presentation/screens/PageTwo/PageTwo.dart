@@ -13,19 +13,7 @@ class PageTwo extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            color: appColors.lightBlue,
-            child: Center(
-              child: Text(
-                "Page 2 - Section 1",
-                style: AppTextStyle.lBold(context: context, color: appColors.appPrimary),
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(
-            color: appColors.sheetBgPrimary,
+            color: Colors.transparent,
             child: Center(
               child: Text(
                 "Page 2 - Section 2",
@@ -37,11 +25,11 @@ class PageTwo extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            color: appColors.appPrimaryLight,
+            color: Colors.transparent,
             child: Center(
               child: Text(
-                "Page 2 - Section 3",
-                style: AppTextStyle.sBoldSize(context: context, color: appColors.white),
+                "Page 2 - Section 2",
+                style: AppTextStyle.mSemiBold(context: context, color: appColors.textBlack),
               ),
             ),
           ),

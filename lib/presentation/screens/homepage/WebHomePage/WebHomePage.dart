@@ -8,8 +8,9 @@ import 'package:untitled/presentation/screens/PageFour/PageFour.dart';
 import 'package:untitled/presentation/screens/PageFive/PageFive.dart';
 import 'package:untitled/presentation/screens/PageSix/PageSix.dart';
 import 'package:untitled/presentation/screens/PageSeven/PageSeven.dart';
-import 'package:untitled/presentation/widgets/CustomGradient/CustomGradient.dart';
+import 'package:untitled/presentation/widgets/GradientSweepBackground/GradientSweepBackground.dart';
 import 'package:untitled/presentation/widgets/custom_header/custom_header.dart';
+import 'package:untitled/presentation/widgets/wave_widget/WaveBackground.dart';
 
 class WebHomePage extends StatefulWidget {
   const WebHomePage({super.key});
@@ -40,33 +41,35 @@ class _WebHomePageState extends State<WebHomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       extendBody: true,
-      body: CustomGradient(
-        child: Column(
-          children: [
-            if (_currentPage == 0)
-              CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
+      body: Stack(
+        children: [
+          GradientSweepBackground(controller: _pageController), // 🔥 This one now uses CustomPainter
 
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                scrollDirection: Axis.vertical,
-                onPageChanged: (index) => setState(() => _currentPage = index),
-                children: const [
-                  PageOne(),
-                  PageTwo(),
-                  PageThree(),
-                  PageFour(),
-                  PageFive(),
-                  PageSix(),
-                  PageSeven(),
-                ],
+          Column(
+            children: [
+              if (_currentPage == 0)
+                CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  scrollDirection: Axis.vertical,
+                  onPageChanged: (index) => setState(() => _currentPage = index),
+                  children: const [
+                    PageOne(),
+                    PageTwo(),
+                    PageThree(),
+                    PageFour(),
+                    PageFive(),
+                    PageSix(),
+                    PageSeven(),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
 
-      // Show FloatingActionButton when NOT on first page
       floatingActionButton: _currentPage != 0
           ? AppConstant.glassMorphicFAB(context, () {
               _jumpToPage(0);

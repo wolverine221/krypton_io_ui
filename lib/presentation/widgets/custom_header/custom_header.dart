@@ -16,7 +16,7 @@ class CustomHeaderWidget extends StatelessWidget {
     final List<String> options = ['Home', 'Product', 'Service', 'About Us'];
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(0), // Optional: if you want square edges
+      borderRadius: BorderRadius.circular(0),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
         child: Container(
