@@ -1,10 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/core/app_icons/app_icons.dart';
 import 'package:untitled/core/app_theme/app_colors/appcolors.dart';
 import 'package:untitled/core/app_textstyle/appTextStyle.dart';
 import 'package:untitled/core/app_universal/app_universal.dart';
-import 'package:untitled/presentation/widgets/CustomButton/CustomButton.dart';
 import 'package:untitled/presentation/widgets/CustomTextFormField/CustomTextFormField.dart';
 import 'package:untitled/presentation/widgets/custom_container/custom_container.dart';
 
@@ -16,113 +16,135 @@ class PageSeven extends StatelessWidget {
     final appColors = Theme.of(context).extension<AppColors>()!;
     final emailController = TextEditingController();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        const Spacer(),
-
-        /// ===== Subscribe / Call-to-action Section =====
-        CustomContainer(
-          flex: 1,
-          outerPadding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 60),
-          color: appColors.backgroundColorBlack,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              /// Left Text
-              Expanded(
-                flex: 2,
-                child: Text(
-                  "Ready to Get\nOur New Stuff?",
-                  style: AppTextStyle.xsSemiBold(context: context, color: appColors.white),
-                ),
-              ),
-              const SizedBox(width: 24),
-
-              /// Email input + Button
-              Expanded(
-                flex: 3,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextFormField(
-                        labelText: "",
-                        hintText: "Your Email",
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    CustomButton(text: "Send", onPressed: () {}),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        /// ===== Footer Links & Info =====
-        Expanded(
-          flex: 2,
-          child: Container(
-            color: appColors.backgroundColor.withOpacity(0.4),
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 60),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                footerColumns(context, appColors),
-                const SizedBox(height: 40),
-                socialRow(appColors),
-                const SizedBox(height: 30),
-                Divider(color: Colors.white54),
-                copyrightText(context, appColors),
+                const SizedBox(height: 60),
+
+                /// ===== Subscribe / Call-to-action Section =====
+                CustomContainer(
+                  outerPadding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 60),
+                  color: appColors.backgroundColorBlack,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      /// Left Text
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          "Ready to Get\nOur New Stuff?",
+                          style: AppTextStyle.mSemiBold(context: context, color: appColors.white),
+                        ),
+                      ),
+                      const SizedBox(width: 24),
+
+                      /// Email input + Button
+                      Expanded(
+                        flex: 3,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: CustomTextFormField(
+                                labelText: "",
+                                hintText: "Your Email",
+                                controller: emailController,
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            IconButton(
+                              onPressed: () {
+                                debugPrint("Subscribe: ${emailController.text}");
+                              },
+                              icon: Icon(
+                                CupertinoIcons.arrow_right_circle,
+                                color: appColors.appPrimary,
+                                size: 40,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                /// ===== Footer Section =====
+                Container(
+                  color: appColors.backgroundColor.withOpacity(0.4),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 60),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      footerColumns(context, appColors),
+                      const SizedBox(height: 40),
+                      socialRow(appColors),
+                      const SizedBox(height: 30),
+                      Divider(color: Colors.white54),
+                      copyrightText(context, appColors),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 
   /// Footer Columns
   Widget footerColumns(BuildContext context, AppColors appColors) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-          flex: 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "About",
-                style: AppTextStyle.mBold(context: context, color: appColors.textBlack),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = constraints.maxWidth < 700;
+        return Flex(
+          direction: isMobile ? Axis.vertical : Axis.horizontal,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "About",
+                    style: AppTextStyle.mBold(context: context, color: appColors.textBlack),
+                  ),
+                  const SizedBox(height: 10),
+                  footerText(context, "Blog", appColors),
+                  footerText(context, "Meet The Team", appColors),
+                  footerText(context, "Contact Us", appColors),
+                ],
               ),
-              const SizedBox(height: 10),
-              footerText(context, "Blog", appColors),
-              footerText(context, "Meet The Team", appColors),
-              footerText(context, "Contact Us", appColors),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Support",
-                style: AppTextStyle.mBold(context: context, color: appColors.textBlack),
+            ),
+            if (!isMobile) const SizedBox(width: 40),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Support",
+                    style: AppTextStyle.mBold(context: context, color: appColors.textBlack),
+                  ),
+                  const SizedBox(height: 10),
+                  footerText(context, "Customer Support", appColors),
+                  footerText(context, "Shipping", appColors),
+                  footerText(context, "Returns", appColors),
+                  footerText(context, "FAQ", appColors),
+                ],
               ),
-              const SizedBox(height: 10),
-              footerText(context, "Customer Support", appColors),
-              footerText(context, "Shipping", appColors),
-              footerText(context, "Returns", appColors),
-              footerText(context, "FAQ", appColors),
-            ],
-          ),
-        ),
-      ],
+            ),
+          ],
+        );
+      },
     );
   }
 
