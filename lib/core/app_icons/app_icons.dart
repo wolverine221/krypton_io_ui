@@ -4,6 +4,8 @@ class AppIcons {
   static String apple = "assets/icons/apple.png";
   static String google = "assets/icons/google.png";
   static String profilePlaceHolder = "assets/icons/profileplaceholder.png";
+  static String spakerNoBG = "assets/images/speaker_nobg.png";
+  static String speaker = "assets/images/speaker.png";
 }
 
 class AppIconsSvg {

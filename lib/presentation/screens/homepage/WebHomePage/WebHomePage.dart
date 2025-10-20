@@ -7,7 +7,7 @@ import 'package:untitled/presentation/screens/PageThree/PageThree.dart';
 import 'package:untitled/presentation/screens/PageFour/PageFour.dart';
 import 'package:untitled/presentation/screens/PageFive/PageFive.dart';
 import 'package:untitled/presentation/screens/PageSix/PageSix.dart';
-import 'package:untitled/presentation/screens/PageSeven/PageSeven.dart';
+import 'package:untitled/presentation/screens/PageSeven/AboutCompanyScreen.dart';
 import 'package:untitled/presentation/widgets/GradientSweepBackground/GradientSweepBackground.dart';
 import 'package:untitled/presentation/widgets/custom_header/custom_header.dart';
 import 'package:untitled/presentation/widgets/wave_widget/WaveBackground.dart';
@@ -49,22 +49,39 @@ class _WebHomePageState extends State<WebHomePage> {
 
           Column(
             children: [
-              if (_currentPage == 0)
-                CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
+              CustomHeaderWidget(currentPage: _currentPage, onPageSelected: _jumpToPage),
               Expanded(
-                child: PageView(
+                child: PageView.builder(
                   controller: _pageController,
                   scrollDirection: Axis.vertical,
                   onPageChanged: (index) => setState(() => _currentPage = index),
-                  children: const [
-                    PageOne(),
-                    PageTwo(),
-                    PageThree(),
-                    PageFour(),
-                    PageFive(),
-                    PageSix(),
-                    PageSeven(),
-                  ],
+                  itemCount: 7,
+                  itemBuilder: (context, index) {
+                    double offset = (_pageController.hasClients)
+                        ? (_pageController.page! - index.toDouble())
+                        : 0.0;
+
+                    offset = offset.clamp(-1.0, 1.0);
+
+                    switch (index) {
+                      case 0:
+                        return PageOne(pageOffset: offset);
+                      case 1:
+                        return PageTwo();
+                      case 2:
+                        return PageThree();
+                      case 3:
+                        return PageFour();
+                      case 4:
+                        return PageFive();
+                      case 5:
+                        return PageSix();
+                      case 6:
+                        return AboutCompanyPage();
+                      default:
+                        return Container();
+                    }
+                  },
                 ),
               ),
             ],
