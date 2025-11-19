@@ -55,7 +55,7 @@ class _WebHomePageState extends State<WebHomePage> {
                   controller: _pageController,
                   scrollDirection: Axis.vertical,
                   onPageChanged: (index) => setState(() => _currentPage = index),
-                  itemCount: 7,
+                  itemCount: 4,
                   itemBuilder: (context, index) {
                     double offset = (_pageController.hasClients)
                         ? (_pageController.page! - index.toDouble())
@@ -73,10 +73,6 @@ class _WebHomePageState extends State<WebHomePage> {
                       case 3:
                         return PageFour();
                       case 4:
-                        return PageFive();
-                      case 5:
-                        return PageSix();
-                      case 6:
                         return AboutCompanyPage();
                       default:
                         return Container();

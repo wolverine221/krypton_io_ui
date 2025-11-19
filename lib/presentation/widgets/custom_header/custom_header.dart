@@ -29,7 +29,7 @@ class _CustomHeaderWidgetState extends State<CustomHeaderWidget> {
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeOut,
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-      decoration: BoxDecoration(color: appColors.appPrimary.withOpacity(0.08)),
+      // decoration: BoxDecoration(color: appColors.appPrimary.withOpacity(0.08)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
